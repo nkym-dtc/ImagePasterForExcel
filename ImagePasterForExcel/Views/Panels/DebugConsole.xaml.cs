@@ -29,17 +29,7 @@ namespace ImagePasterForExcel.Views.Panels
         {
             if (e.Key is Key.Enter)
             {
-                Lines.Children.Add(new TextBlock { Text = Cmd.Text });
-
-                var mwvm = FindResource("mwvm") as MainWindowViewModel;
-                var cmd = await mwvm.DebugMethod(Cmd);
-
-                if (!string.IsNullOrEmpty(cmd))
-                {
-                    Lines.Children.Add(new TextBlock { Text = cmd });
-                }
-
-                Cmd.Text = string.Empty;
+               
             }
             else if (e.Key is Key.Escape)
             {
