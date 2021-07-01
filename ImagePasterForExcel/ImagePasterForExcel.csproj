@@ -74,9 +74,6 @@
     <Compile Include="Model\Excel.cs" />
     <Compile Include="Model\SystemLogger.cs" />
     <Compile Include="Model\ThemeSelector.cs" />
-    <Compile Include="SplashWindow.xaml.cs">
-      <DependentUpon>SplashWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ViewModel\AsyncDelegateCommand.cs" />
     <Compile Include="ViewModel\DelegateCommand.cs" />
     <Compile Include="Views\Home.xaml.cs">
@@ -117,10 +114,6 @@
     <Page Include="MaterialDialog\ProgressDialog.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="SplashWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Home.xaml">
       <SubType>Designer</SubType>

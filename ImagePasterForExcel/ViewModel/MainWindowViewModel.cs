@@ -6,18 +6,13 @@ using MaterialDesignThemes.Wpf;
 using MaterialDialog;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Input;
 using MSAPI = Microsoft.WindowsAPICodePack;
-using System.Reflection;
 using Reactive.Bindings;
 
 
@@ -81,11 +76,8 @@ namespace ImagePasterForExcel
        {
            var dlg = new MSAPI::Dialogs.CommonOpenFileDialog();
 
-           // フォルダ選択ダイアログ（falseにするとファイル選択ダイアログ）
            dlg.IsFolderPicker = true;
-           // タイトル
            dlg.Title = "フォルダを選択してください";
-           // 初期ディレクトリ
            dlg.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
 
            if (dlg.ShowDialog() == MSAPI::Dialogs.CommonFileDialogResult.Ok)
@@ -100,11 +92,8 @@ namespace ImagePasterForExcel
         {
             var dlg = new MSAPI::Dialogs.CommonOpenFileDialog();
 
-            // フォルダ選択ダイアログ（falseにするとファイル選択ダイアログ）
             dlg.IsFolderPicker = true;
-            // タイトル
             dlg.Title = "フォルダを選択してください";
-            // 初期ディレクトリ
             dlg.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
 
             if (dlg.ShowDialog() == MSAPI::Dialogs.CommonFileDialogResult.Ok)
@@ -145,8 +134,6 @@ namespace ImagePasterForExcel
             set => SetProperty(ref _SaveName, value);
         }
 
-
-
         public Excel Excel { get; set; }
 
         public MainWindowViewModel()
@@ -167,7 +154,6 @@ namespace ImagePasterForExcel
         {
             Assembly mainAssembly = Assembly.GetEntryAssembly();
             AssemblyName mainAssemName = mainAssembly.GetName();
-            // バージョン名（AssemblyVersion属性）を取得
             Version appVersion = mainAssemName.Version;
             string v = appVersion.Major.ToString() + "." +
           appVersion.Minor.ToString() + "." +
@@ -175,66 +161,6 @@ namespace ImagePasterForExcel
           appVersion.Revision.ToString();
             return v;
         }
-
-
-
-        /// <summary>
-        /// デバッグ用コンソールから呼び出すコマンド解析メソッド
-        /// </summary>
-        /// <param name="o"></param>
-        /// <returns></returns>
-        public async Task<string> DebugMethod(object o)
-        {
-            var tb = o as TextBox;
-            var text = tb.Text;
-            var cmd = text.Split(' ');
-            try
-            {
-
-                return "avairable commands : " +
-                       "\n    - qr [qr string]" +
-                       "\n    - order [order number] " +
-                       "\n    - torque [min] [max]" +
-                       "\n    - trials [num]" +
-                       "\n    or Press esc to quit";
-
-            }
-            catch
-            {
-                return "invalid command was given.";
-            }
-
-
-            return string.Empty;
-        }
-
-
-
-        public async void HandleKeyPress(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.F1)
-            {
-
-            }
-            else if (e.Key == Key.F2)
-            {
-
-
-            }
-            else if (e.Key is Key.F11)
-            {
-                var console = new Views.Panels.DebugConsole();
-                console.Show();
-
-            }
-            else if (e.Key == Key.F12)
-            {
-
-
-
-            }
-        }
-
 
     }
 }

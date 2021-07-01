@@ -30,7 +30,6 @@ namespace ImagePasterForExcel
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
-        private SplashWindow _sw;
 
         MainWindowViewModel _mwvm;
 
