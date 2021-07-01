@@ -11,8 +11,8 @@
     xmlns:views="clr-namespace:ImagePasterForExcel.Views"
     x:Name="MainMetroWindow"
     Title="{Binding Title}"
-    Width="640"
-    Height="480"
+    Width="500"
+    Height="400"
     d:DataContext="{d:DesignInstance {x:Type local:MainWindowViewModel}}"
     Background="{DynamicResource MaterialDesignPaper}"
     BorderThickness="1"
@@ -76,14 +76,23 @@
                         Style="{StaticResource MaterialDesignNavigationRailTabItem}"
                         >
                         <TextBlock
-                            VerticalAlignment="Top"
-                            Text="Help"
-                            />
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="center"
+                            >
+                            1. 画像ファイルがあるフォルダを選択<LineBreak />
+                            (直下になくてもサブディレクトリ内にあればOK<LineBreak />
+                            また画像以外があった場合は落ちるかもしれない)<LineBreak />
+                            2. 保存先を指定<LineBreak />
+                            3. 保存名を入力(拡張子 .xlsx も入力して)<LineBreak />
+                            4. Pasteボタンでファイルを作成</TextBlock>
                     </TabItem>
                 </TabControl>
             </Grid>
 
-            <materialDesign:Snackbar Grid.Row="1" MessageQueue="{Binding Source={x:Static local:MainWindowViewModel.SnackbarMessageQueue}}" />
+            <materialDesign:Snackbar
+                Grid.Row="1"
+                MessageQueue="{Binding Source={x:Static local:MainWindowViewModel.SnackbarMessageQueue}}"
+                />
 
             <StatusBar
                 Grid.Row="2"
